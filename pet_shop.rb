@@ -12,3 +12,8 @@ end
 def add_or_remove_cash(shop_name, amount_modified)
   shop_name[:admin][:total_cash] += amount_modified
 end
+
+# 5
+def pets_sold(shop_name)
+  shop_name[:admin][:pets_sold]
+end
