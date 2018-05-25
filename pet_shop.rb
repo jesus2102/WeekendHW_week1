@@ -38,3 +38,12 @@ def pets_by_breed(shop_name, breed)
   end
   return total_by_breed
 end
+
+# 10
+def find_pet_by_name(shop_name, pet_name)
+  for pet in shop_name[:pets]
+    if pet_name == pet[:name]
+      return pet
+    end
+  end
+end
