@@ -1,6 +1,6 @@
 # 1
-def pet_shop_name(shop_name)
-  return shop_name[:name]
+def pet_shop_name(shop)
+  return shop[:name]
 end
 
 # 2
@@ -9,29 +9,29 @@ def total_cash(amount)
 end
 
 # 3 and 4
-def add_or_remove_cash(shop_name, amount_modified)
-  shop_name[:admin][:total_cash] += amount_modified
+def add_or_remove_cash(shop, amount_modified)
+  shop[:admin][:total_cash] += amount_modified
 end
 
 # 5
-def pets_sold(shop_name)
-  shop_name[:admin][:pets_sold]
+def pets_sold(shop)
+  shop[:admin][:pets_sold]
 end
 
 # 6
-def increase_pets_sold(shop_name, number_pets_sold)
-  shop_name[:admin][:pets_sold] += number_pets_sold
+def increase_pets_sold(shop, number_pets_sold)
+  shop[:admin][:pets_sold] += number_pets_sold
 end
 
 # 7
-def stock_count(shop_name)
-  shop_name[:pets].length()
+def stock_count(shop)
+  shop[:pets].length()
 end
 
 # 8 and 9
-def pets_by_breed(shop_name, breed)
+def pets_by_breed(shop, breed)
   total_by_breed = []
-  for pet in shop_name[:pets]
+  for pet in shop[:pets]
     if breed == pet[:breed]
       total_by_breed.push(pet)
     end
@@ -40,10 +40,20 @@ def pets_by_breed(shop_name, breed)
 end
 
 # 10 and 11
-def find_pet_by_name(shop_name, pet_name)
-  for pet in shop_name[:pets]
+def find_pet_by_name(shop, pet_name)
+  for pet in shop[:pets]
     if pet_name == pet[:name]
       return pet
+    end
+  end
+  return nil
+end
+
+# 12
+def remove_pet_by_name(shop, pet_name)
+  for pet in shop[:pets]
+    if pet_name == pet[:name]
+      shop[:pets].delete(pet)
     end
   end
 end
